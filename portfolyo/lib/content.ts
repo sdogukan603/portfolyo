@@ -1,15 +1,15 @@
 // Sitedeki tüm metinler burada. Yalnızca bu dosyayı düzenlemen yeterli.
 
 export const site = {
-  name: "Adın Soyadın",
-  handle: "kullaniciadi", // header'da görünen kısa ad
+  name: "Doğukan Şahin",
+  handle: "dogukansahin", // header'da görünen kısa ad
   role: "Freelance yazılım geliştirici",
   city: "İzmir",
   timeZone: "Europe/Istanbul",
   available: true, // yeni işe açık değilsen false yap
-  email: "merhaba@alanadin.com",
+  email: "dogukansahin1319@gmail.com",
   links: [
-    { label: "GitHub", href: "https://github.com/kullaniciadi" },
+    { label: "GitHub", href: "https://github.com/sdogukan603" },
     { label: "LinkedIn", href: "https://linkedin.com/in/kullaniciadi" },
     { label: "Upwork", href: "https://upwork.com/freelancers/kullaniciadi" },
   ],
@@ -112,7 +112,7 @@ export const steps = [
 
 export const about = {
   body: [
-    "Merhaba, ben Adın. Birkaç yıldır web ve otomasyon projeleri geliştiriyorum. İşimde en çok önem verdiğim şey, teslim ettiğim şeyin gerçekten kullanılması ve kolayca bakımının yapılabilmesi.",
+    "Merhaba, ben Doğukan. Birkaç yıldır web ve otomasyon projeleri geliştiriyorum. İşimde en çok önem verdiğim şey, teslim ettiğim şeyin gerçekten kullanılması ve kolayca bakımının yapılabilmesi.",
     "Kodu yazmadan önce işin neden yapıldığını anlamaya çalışırım. Bazen en iyi çözüm daha az kod yazmaktır.",
   ],
   tools: [
