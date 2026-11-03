@@ -1,17 +1,25 @@
 # Portfolyo
 
-Next.js 15 + Tailwind CSS 4 ile yapılmış, Vercel'de yayınlanmaya hazır kişisel portföy sitesi.
+Next.js 15 (App Router) + Tailwind CSS 4 ile yapılmış kişisel portföy sitesi. Vercel'de yayında.
 
 ## İçeriği düzenleme
 
-Sitedeki tüm metinler tek bir dosyada: **`lib/content.ts`**
+| Ne değişecek | Dosya |
+| --- | --- |
+| Ad, e-posta, linkler, müsaitlik, site adresi | `lib/content.ts` → `site` |
+| Ana başlık ve tanıtım | `lib/content.ts` → `hero` |
+| Hizmetler, süreç, hakkımda, teknolojiler, iletişim metni | `lib/content.ts` |
+| Projeler | `lib/projects.ts` |
+| Renkler | `app/globals.css` → `@theme` |
+| Link paylaşım görseli | `app/opengraph-image.png` (1200x630) |
 
-- `site`: adın, e-postan, şehrin, sosyal linklerin, "yeni işe açık" durumu
-- `hero`: ana başlık ve kısa tanıtım
-- `projects`: projelerin (en yenisi en üstte). `hash` alanına 7 karakterlik rastgele harf/rakam yaz.
-- `services`, `steps`, `about`: hizmetler, çalışma süreci, hakkımda
+### Proje eklemek
 
-Renkleri değiştirmek istersen `app/globals.css` içindeki `@theme` bloğuna bak.
+`lib/projects.ts` dosyasındaki listeye yeni bir nesne ekle; en yenisi en üstte durur.
+
+- `demo: true` olan projelerde sitede **demo** etiketi görünür. Gerçek projelerde bu satırı sil.
+- Ekran görüntüsü için görseli `public/projects/` klasörüne koy (16:10 oranı, en az 1280x800).
+  Sonra projeye `image: { src: "/projects/dosya.png", alt: "Kısa açıklama" }` ekle.
 
 ## Bilgisayarında çalıştırma
 
@@ -19,28 +27,28 @@ Renkleri değiştirmek istersen `app/globals.css` içindeki `@theme` bloğuna ba
 
 ```bash
 npm install
-npm run dev
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm run lint       # ESLint
+npm run typecheck  # TypeScript
 ```
 
-Sonra tarayıcıda http://localhost:3000 adresini aç. Dosyayı kaydettikçe sayfa otomatik yenilenir.
+## Yayınlama
 
-## Vercel'e yükleme
+GitHub'a her `git push` yaptığında Vercel siteyi otomatik günceller.
 
-1. Projeyi GitHub'da yeni bir repoya yükle:
-   ```bash
-   git init
-   git add .
-   git commit -m "İlk sürüm"
-   git branch -M main
-   git remote add origin https://github.com/KULLANICI_ADIN/portfolyo.git
-   git push -u origin main
-   ```
-2. [vercel.com](https://vercel.com) adresinde GitHub hesabınla giriş yap.
-3. **Add New → Project** de, `portfolyo` reposunu seç, **Deploy** butonuna bas. Ayar değiştirmene gerek yok.
-4. Bir dakika içinde `portfolyo-xxx.vercel.app` adresinde yayında olur.
+```bash
+git add .
+git commit -m "Açıklama"
+git push
+```
 
-Bundan sonra GitHub'a her `git push` yaptığında Vercel siteyi otomatik günceller.
+Kendi alan adını bağlarsan `lib/content.ts` içindeki `site.url` değerini de güncelle; arama motoru ve paylaşım bağlantıları bu adresi kullanır.
 
-### Kendi alan adını bağlama
+## Yapı
 
-Vercel'de projeye gir, **Settings → Domains** bölümünden alan adını ekle ve gösterdiği DNS kayıtlarını alan adını aldığın firmanın panelinde gir.
+- `app/page.tsx`: sayfa (server component)
+- `components/SiteHeader.tsx`: sabit üst menü, aktif bölüm göstergesi, mobil menü (client)
+- `components/ProjectTimeline.tsx`: git log görünümlü projeler; yerleşik `<details>` ile açılır, JavaScript gerektirmez
+- `components/CopyEmail.tsx`, `components/LocalTime.tsx`: küçük client bileşenleri
+- `app/robots.ts`, `app/sitemap.ts`, `app/opengraph-image.png`: SEO ve paylaşım

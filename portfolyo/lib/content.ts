@@ -1,9 +1,10 @@
-// Sitedeki tüm metinler burada. Yalnızca bu dosyayı düzenlemen yeterli.
+// Sitedeki metinlerin tamamı burada. Projeler için: lib/projects.ts
 
 export const site = {
   name: "Doğukan Şahin",
-  handle: "dogukansahin", // header'da görünen kısa ad
+  handle: "dogukansahin", // üst barda görünen kısa ad
   role: "Freelance yazılım geliştirici",
+  url: "https://dogukansahinportfolyo.vercel.app", // kendi alan adını bağlarsan burayı değiştir
   city: "İzmir",
   timeZone: "Europe/Istanbul",
   available: true, // yeni işe açık değilsen false yap
@@ -13,81 +14,56 @@ export const site = {
     { label: "LinkedIn", href: "https://linkedin.com/in/kullaniciadi" },
     { label: "Upwork", href: "https://upwork.com/freelancers/kullaniciadi" },
   ],
-  // Arama motorları ve link önizlemeleri için
   description:
-    "İşletmeler için hızlı, bakımı kolay web siteleri, uygulamalar ve otomasyonlar geliştiren freelance yazılımcı.",
+    "İzmir'de freelance yazılım geliştirici. İşletmeler için web uygulamaları, backend servisleri, API entegrasyonları ve otomasyonlar geliştiriyorum.",
+  keywords: [
+    "freelance yazılım geliştirici",
+    "Next.js geliştirici",
+    "backend geliştirme",
+    "API entegrasyonu",
+    "otomasyon",
+    "İzmir",
+  ],
 };
+
+export const nav = [
+  { id: "isler", label: "İşler" },
+  { id: "hizmetler", label: "Hizmetler" },
+  { id: "hakkimda", label: "Hakkımda" },
+  { id: "iletisim", label: "İletişim" },
+];
 
 export const hero = {
   headline: "Fikrini hızlı ve sağlam çalışan yazılıma dönüştürüyorum.",
   intro:
-    "Küçük işletmeler ve girişimler için web siteleri, web uygulamaları ve iş akışını hızlandıran otomasyonlar geliştiriyorum. Net kapsam, düzenli iletişim, zamanında teslim.",
+    "İşletmeler ve girişimler için web uygulamaları, backend servisleri, API entegrasyonları ve iş akışını hızlandıran otomasyonlar geliştiriyorum. Net kapsam, düzenli iletişim, zamanında teslim.",
 };
 
+// icon: "api" | "plug" | "terminal" | "window"
 export const services = [
   {
-    title: "Web siteleri",
-    body: "Hızlı açılan, Google'da bulunabilen, mobilde düzgün görünen kurumsal siteler ve açılış sayfaları.",
+    icon: "api",
+    title: "Backend ve API geliştirme",
+    body: "Uygulamanın arkasındaki sunucu tarafı: veri modeli, kimlik doğrulama, ödeme akışı ve dışarıya açılan API'ler.",
+    tags: ["REST", "Node.js", "Python", "PostgreSQL"],
   },
   {
-    title: "Web uygulamaları",
-    body: "Panel, rezervasyon, üyelik ya da ödeme gerektiren uygulamalar; uçtan uca, yayına kadar.",
+    icon: "plug",
+    title: "API entegrasyonları",
+    body: "Kullandığın servisleri birbirine bağlarım: ödeme sistemleri, CRM, e-posta, kargo ya da muhasebe yazılımları.",
+    tags: ["Stripe / iyzico", "Webhook", "OAuth"],
   },
   {
-    title: "Otomasyon ve entegrasyon",
-    body: "Elle yapılan tekrar eden işleri script ve botlarla otomatikleştirme, servisleri birbirine bağlama.",
+    icon: "terminal",
+    title: "Otomasyon ve botlar",
+    body: "Elle tekrarlanan işleri script ve botlara devrederim; raporlar, bildirimler ve veri aktarımları kendiliğinden çalışır.",
+    tags: ["Python", "Cron", "Telegram"],
   },
   {
-    title: "Bakım ve hata düzeltme",
-    body: "Mevcut projede hata ayıklama, performans iyileştirme ve düzenli güncelleme.",
-  },
-];
-
-// Projeler git log gibi listelenir; en yeni en üstte.
-// Bunlar örnek içerik: kendi projelerinle değiştir.
-export const projects = [
-  {
-    hash: "a3f9c21",
-    year: "2026",
-    name: "Randevu paneli",
-    summary: "Bir güzellik salonu için online randevu ve hatırlatma sistemi",
-    stack: ["Next.js", "PostgreSQL", "Stripe"],
-    detail:
-      "Müşteriler boş saatleri görüp randevu alıyor, salon tek ekrandan günü yönetiyor. SMS hatırlatmalarıyla gelmeyen randevular belirgin şekilde azaldı.",
-    links: [
-      { label: "Canlı site", href: "https://ornek.com" },
-      { label: "Kaynak kod", href: "https://github.com/kullaniciadi/randevu" },
-    ],
-  },
-  {
-    hash: "7be04d8",
-    year: "2026",
-    name: "Stok takip botu",
-    summary: "E-ticaret mağazası için stok uyarılarını Telegram'a gönderen bot",
-    stack: ["Python", "Telegram API", "Cron"],
-    detail:
-      "Mağazanın ürünlerini saatlik kontrol edip kritik seviyeye düşen ürünleri ekibe bildiriyor. Elle yapılan günlük sayım tamamen kalktı.",
-    links: [{ label: "Kaynak kod", href: "https://github.com/kullaniciadi/stok-bot" }],
-  },
-  {
-    hash: "c51e9fa",
-    year: "2025",
-    name: "Restoran sitesi",
-    summary: "Menü, rezervasyon formu ve Google Haritalar entegrasyonu olan tanıtım sitesi",
-    stack: ["Astro", "Tailwind", "Vercel"],
-    detail:
-      "Sahibinin menüyü kendisinin güncelleyebildiği, mobilde bir saniyenin altında açılan bir site. Yerel aramalarda ilk sayfaya çıktı.",
-    links: [{ label: "Canlı site", href: "https://ornek.com" }],
-  },
-  {
-    hash: "0d2a6b3",
-    year: "2025",
-    name: "Fatura dönüştürücü",
-    summary: "PDF faturaları Excel tablosuna aktaran masaüstü aracı",
-    stack: ["Python", "pdfplumber", "openpyxl"],
-    detail:
-      "Bir muhasebe ofisi için ayda yüzlerce faturanın elle girilmesini dakikalara indiren küçük bir araç.",
-    links: [{ label: "Kaynak kod", href: "https://github.com/kullaniciadi/fatura" }],
+    icon: "window",
+    title: "Web uygulamaları ve siteler",
+    body: "Hızlı açılan, mobilde düzgün görünen, arama motorlarında bulunabilen paneller, uygulamalar ve kurumsal siteler.",
+    tags: ["Next.js", "React", "Tailwind"],
   },
 ];
 
@@ -102,7 +78,7 @@ export const steps = [
   },
   {
     title: "Geliştirme",
-    body: "Haftalık ara teslimlerle ilerlerim; her aşamayı canlı linkten görürsün.",
+    body: "Haftalık ara teslimlerle ilerlerim; her aşamayı canlı bir linkten takip edersin.",
   },
   {
     title: "Teslim ve destek",
@@ -111,18 +87,22 @@ export const steps = [
 ];
 
 export const about = {
+  lead: "Merhaba, ben Doğukan. İşletmelerin her gün kullandığı, bakımı kolay yazılımlar geliştiriyorum.",
   body: [
-    "Merhaba, ben Doğukan. Birkaç yıldır web ve otomasyon projeleri geliştiriyorum. İşimde en çok önem verdiğim şey, teslim ettiğim şeyin gerçekten kullanılması ve kolayca bakımının yapılabilmesi.",
-    "Kodu yazmadan önce işin neden yapıldığını anlamaya çalışırım. Bazen en iyi çözüm daha az kod yazmaktır.",
+    "Kodu yazmadan önce işin neden yapıldığını anlamaya çalışırım. Bazen en iyi çözüm daha az kod yazmaktır; bazen de elle yapılan bir işi tamamen ortadan kaldıran küçük bir otomasyondur.",
+    "Teslim ettiğim projelerin gerçekten kullanılmasını ve benden sonra da kolayca geliştirilebilmesini önemsiyorum.",
   ],
-  tools: [
-    "TypeScript",
-    "React / Next.js",
-    "Node.js",
-    "Python",
-    "PostgreSQL",
-    "Tailwind CSS",
-    "Vercel",
-    "Git",
+  // Kendi kullandığın teknolojilerle güncelle
+  stack: [
+    { group: "Frontend", items: ["TypeScript", "React", "Next.js", "Tailwind CSS"] },
+    { group: "Backend", items: ["Node.js", "Python", "REST API", "Webhook"] },
+    { group: "Database", items: ["PostgreSQL", "SQLite", "Redis"] },
+    { group: "DevOps ve araçlar", items: ["Git", "GitHub Actions", "Docker", "Vercel"] },
   ],
+};
+
+export const contact = {
+  heading: "Aklında bir proje varsa konuşalım.",
+  body: "Ne yapmak istediğini birkaç cümleyle yaz. 24 saat içinde kapsam ve tahmini süreyle dönüş yaparım.",
+  subject: "Proje hakkında",
 };
